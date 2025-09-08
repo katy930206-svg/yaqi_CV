@@ -122,7 +122,8 @@
     /* Responsive */
     @media(max-width: 768px) {
       .hero, .about, .project-card { flex-direction: column; text-align: center; }
-      .hero-content { max-width: 100%; }
+      .hero-content { max-width: 100%; order: 2; } /* 修改顺序 */
+      .hero-img { order: 1; margin-bottom: 20px; } /* 添加头像容器并修改顺序 */
       .personal-info { grid-template-columns: 1fr; }
       section { padding: 30px 15px; } /* 增加移动设备上的内边距 */
       .hero { padding: 30px 5%; } /* 增加移动设备上的内边距 */
@@ -188,13 +189,15 @@
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
-    <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
+    <div class="hero-img">
+      <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
+    </div>
   </section>
   
   <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Data-driven Digital Marketing & Analytics professional with 5+ years of experience in web analytics, digital performance tracking, and e-commerce optimization across Europe and APAC. Proven track record in GA4, Power BI, Looker Studio, and NPS analytics to uncover behavioral insights, optimize conversion funnels, and improve customer journeys.</p>
+    <p>Data-driven Digital Marketing & Analytics professional with 5+ years of experience in web analytics, digital performance tracking, and e-commerce optimization across Europe and APAC. Proven track record in GA4, Power BI, Looker Studio, and NPS analytics to uncover behavioral insights, optimize conversion funnels, improve customer journeys.</p>
     <!-- KPI -->
     <div class="kpi-cards">
       <div class="kpi-card"><span data-target="10000">0</span>Orders/Month</div>
