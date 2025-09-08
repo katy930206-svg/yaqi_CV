@@ -11,61 +11,168 @@
   <style>
     /* Reset & Base */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-    body { color: #111; background-color: #fff; line-height: 1.5; } /* 减小行高 */
+    body { color: #111; background-color: #fff; line-height: 1.6; } /* 增加行高提高可读性 */
     a { text-decoration: none; color: inherit; }
-    section { padding: 40px 15px; max-width: 1000px; margin: 0 auto; } /* 减小内边距 */
-    h2 { margin-bottom: 20px; color: #111; border-bottom:2px solid #007BFF; display:inline-block; padding-bottom:3px; } /* 减小底部边距和内边距 */
+    section { 
+      padding: 20px 15px; /* 减少内边距为原来的一半 */
+      max-width: 1000px; 
+      margin: 0 auto; 
+    }
+    h2 { 
+      margin-bottom: 15px; /* 减少底部边距 */
+      color: #111; 
+      border-bottom: 2px solid #007BFF; 
+      display: inline-block; 
+      padding-bottom: 3px; 
+    }
 
     /* Buttons */
-    .btn { padding: 12px 24px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; display: inline-block; font-size: 16px; } /* 增加触摸区域 */
+    .btn { 
+      padding: 12px 24px; 
+      background: #007BFF; 
+      color: #fff; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: 0.3s; 
+      text-align: center; 
+      display: inline-block; 
+      font-size: 16px; 
+    }
     .btn:hover { background: #0056b3; }
 
     /* Hero Section */
-    .hero { display: flex; align-items: center; justify-content: space-between; padding: 30px 8%; background: #f8f9fa; } /* 减小内边距 */
+    .hero { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 25px 8%; /* 减少内边距 */
+      background: #f8f9fa; 
+    }
     .hero-content { max-width: 55%; }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 8px; } /* 减小底部边距 */
-    .hero p { font-size: 1rem; margin-bottom: 15px; } /* 减小底部边距 */
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; } /* 使用flex布局和gap */
+    .hero h1 { font-size: 2.2rem; margin-bottom: 8px; }
+    .hero p { font-size: 1rem; margin-bottom: 15px; }
+    .hero-buttons { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 10px; 
+      margin-bottom: 15px; 
+    }
     .btn-primary { background: #007bff; color: white; }
     .btn-outline { border: 2px solid #007bff; color: #007bff; background: transparent; }
-    .hero img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; } /* 减小图片尺寸 */
+    .hero img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; }
 
     /* KPI Cards */
-    .kpi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:15px; margin-top:20px; } /* 减小间隙和顶部边距 */
-    .kpi-card { background:#f9f9f9; border-radius:8px; padding:15px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.05); } /* 减小内边距 */
-    .kpi-card span { display:block; font-size:1.3em; color:#007BFF; font-weight:bold; margin-bottom:3px; } /* 减小底部边距 */
+    .kpi-cards { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+      gap: 15px; 
+      margin-top: 15px; /* 减少顶部边距 */
+    }
+    .kpi-card { 
+      background: #f9f9f9; 
+      border-radius: 8px; 
+      padding: 15px; 
+      text-align: center; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+    }
+    .kpi-card span { 
+      display: block; 
+      font-size: 1.3em; 
+      color: #007BFF; 
+      font-weight: bold; 
+      margin-bottom: 3px; 
+    }
 
     /* Skills */
-    .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; } /* 减小间隙 */
-    .skills-container .card { background: #f0f0f0; padding: 15px; border-radius: 8px; } /* 减小内边距 */
-    .skills-container .card h3 { margin-bottom: 8px; font-size: 1em; } /* 减小底部边距 */
+    .skills-container { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+      gap: 15px; 
+    }
+    .skills-container .card { 
+      background: #f0f0f0; 
+      padding: 15px; 
+      border-radius: 8px; 
+    }
+    .skills-container .card h3 { margin-bottom: 8px; font-size: 1em; }
 
     /* Experience & Projects */
-    .experience-card, .project-card { background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 6px; transition: 0.3s; } /* 减小内边距和底部边距 */
+    .experience-card, .project-card { 
+      background: #f9f9f9; 
+      padding: 15px; 
+      margin-bottom: 12px; /* 减少底部边距 */
+      border-radius: 6px; 
+      transition: 0.3s; 
+    }
     .experience-card:hover, .project-card:hover { background: #eaeaea; }
-    .experience-card h3, .project-card h3 { font-weight: 600; margin-bottom: 6px; } /* 减小底部边距 */
-    .experience-card span { font-style: italic; color: #555; font-size: 0.85em; } /* 减小字体大小 */
-    .experience-card ul { padding-left: 18px; margin-top: 8px; } /* 减小左侧内边距和顶部边距 */
+    .experience-card h3, .project-card h3 { font-weight: 600; margin-bottom: 6px; }
+    .experience-card span { font-style: italic; color: #555; font-size: 0.85em; }
+    .experience-card ul { padding-left: 18px; margin-top: 8px; }
 
-    /* Projects Section (优化) */
-    .projects { display: flex; flex-direction: column; gap: 15px; } /* 减小间隙 */
-    .project-card { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; } /* 减小间隙 */
+    /* Projects Section */
+    .projects { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 15px; 
+    }
+    .project-card { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 15px; 
+      align-items: center; 
+    }
     .project-text { flex: 1; min-width: 230px; }
     .project-img { flex: 1; min-width: 230px; text-align: center; }
-    .project-img img { width: 100%; max-width: 350px; border-radius: 6px; object-fit: cover; } /* 减小最大宽度 */
+    .project-img img { width: 100%; max-width: 350px; border-radius: 6px; object-fit: cover; }
     
-      /* Languages */
-    .languages, .tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .language, .tool { background: #f9f9f9; color: #000; padding: 10px 15px; font-weight: 500; border-radius: 5px; }
+    /* Languages */
+    .languages, .tools { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 10px; 
+      margin-top: 15px; /* 减少顶部边距 */
+    }
+    .language, .tool { 
+      background: #f9f9f9; 
+      color: #000; 
+      padding: 10px 15px; 
+      font-weight: 500; 
+      border-radius: 5px; 
+    }
 
-    /* Personal Info (替代 Contact Form) */
-    .personal-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 600px; } /* 减小间隙 */
-    .info-item { display: flex; align-items: center; gap: 10px; background: #f9f9f9; padding: 12px; border-radius: 6px; } /* 增加内边距 */
+    /* Personal Info */
+    .personal-info { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 12px; 
+      max-width: 600px; 
+    }
+    .info-item { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      background: #f9f9f9; 
+      padding: 12px; 
+      border-radius: 6px; 
+    }
     .info-item i { font-size: 1.1em; color: #007BFF; }
     .info-item a { color: #007BFF; }
 
     /* Footer */
-    footer { text-align: center; padding: 30px 15px; color: #555; font-size: 0.85em; } /* 减小内边距和字体大小 */
+    footer { 
+      text-align: center; 
+      padding: 20px 15px; /* 减少内边距 */
+      color: #555; 
+      font-size: 0.85em; 
+    }
+
+    /* Text alignment for better mobile readability */
+    p, li {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
 
     /* Mobile Navigation */
     .mobile-nav-toggle {
@@ -122,43 +229,66 @@
     /* Responsive */
     @media(max-width: 768px) {
       .hero, .about, .project-card { flex-direction: column; text-align: center; }
-      .hero-content { max-width: 100%; order: 2; } /* 修改顺序 */
-      .hero-img { order: 1; margin-bottom: 20px; } /* 添加头像容器并修改顺序 */
+      .hero-content { max-width: 100%; order: 2; }
+      .hero-img { order: 1; margin-bottom: 15px; } /* 减少底部边距 */
       .personal-info { grid-template-columns: 1fr; }
-      section { padding: 30px 15px; } /* 增加移动设备上的内边距 */
-      .hero { padding: 30px 5%; } /* 增加移动设备上的内边距 */
+      section { padding: 20px 15px; } /* 减少内边距 */
+      .hero { padding: 20px 5%; } /* 减少内边距 */
       
-      /* 移动设备上的按钮大小 */
+      /* 移动设备文本优化 */
+      p, li {
+        text-align: justify;
+        text-justify: distribute-all-lines; /* 更好的文本分布 */
+        hyphens: auto;
+        word-spacing: -0.05em; /* 微调字间距 */
+      }
+      
+      /* 列表项优化 */
+      ul {
+        padding-left: 20px;
+      }
+      
+      li {
+        margin-bottom: 5px;
+      }
+      
       .btn { padding: 14px 26px; }
       
-      /* 移动导航 */
       .mobile-nav-toggle { display: flex; justify-content: center; align-items: center; }
       
-      /* 调整KPI卡片布局 */
       .kpi-cards { grid-template-columns: repeat(2, 1fr); }
       
-      /* 调整技能卡片布局 */
       .skills-container { grid-template-columns: 1fr; }
       
-      /* 调整项目卡片布局 */
       .project-card { flex-direction: column; }
       .project-text, .project-img { min-width: 100%; }
       
-      /* 增加触摸友好的链接和按钮间距 */
       .info-item { padding: 15px; }
       
-      /* 调整字体大小以提高可读性 */
       .hero h1 { font-size: 1.8rem; }
       h2 { font-size: 1.5rem; }
     }
     
     @media(max-width: 480px) {
-      /* 超小屏幕调整 */
       .kpi-cards { grid-template-columns: 1fr; }
       .hero-buttons { flex-direction: column; }
       .hero img { width: 120px; height: 120px; }
       .hero h1 { font-size: 1.6rem; }
-      section { padding: 25px 10px; }
+      section { padding: 15px 10px; } /* 减少内边距 */
+      
+      /* 超小屏幕文本优化 */
+      p, li {
+        text-align: justify;
+        text-justify: distribute;
+        hyphens: auto;
+        line-height: 1.7; /* 增加行高提高可读性 */
+      }
+      
+      /* 调整段落和列表的左右边距 */
+      section > p {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
     }
   </style>
 </head>
@@ -190,7 +320,7 @@
       </div>
     </div>
     <div class="hero-img">
-      <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Yaqi Yin">
     </div>
   </section>
   
@@ -217,7 +347,7 @@
           <p>Launched dashboard report framework with GA4, Power BI and Looker Studio for real-time KPI tracking across 10+ websites.</p>
         </div>
         <div class="project-img">
-          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Dashboard Project">
         </div>
       </div>
       <div class="project-card">
