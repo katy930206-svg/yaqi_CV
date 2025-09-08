@@ -17,7 +17,7 @@
     h2 { margin-bottom: 20px; color: #111; border-bottom:2px solid #007BFF; display:inline-block; padding-bottom:3px; } /* 减小底部边距和内边距 */
 
     /* Buttons */
-    .btn { padding: 10px 20px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; display: inline-block; } /* 减小内边距 */
+    .btn { padding: 12px 24px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; display: inline-block; font-size: 16px; } /* 增加触摸区域 */
     .btn:hover { background: #0056b3; }
 
     /* Hero Section */
@@ -25,9 +25,9 @@
     .hero-content { max-width: 55%; }
     .hero h1 { font-size: 2.2rem; margin-bottom: 8px; } /* 减小底部边距 */
     .hero p { font-size: 1rem; margin-bottom: 15px; } /* 减小底部边距 */
-    .hero-buttons a { margin-right: 8px; padding: 8px 16px; border-radius: 5px; font-weight: bold; } /* 减小外边距和内边距 */
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; } /* 使用flex布局和gap */
     .btn-primary { background: #007bff; color: white; }
-    .btn-outline { border: 2px solid #007bff; color: #007bff; }
+    .btn-outline { border: 2px solid #007bff; color: #007bff; background: transparent; }
     .hero img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; } /* 减小图片尺寸 */
 
     /* KPI Cards */
@@ -60,23 +60,123 @@
 
     /* Personal Info (替代 Contact Form) */
     .personal-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 600px; } /* 减小间隙 */
-    .info-item { display: flex; align-items: center; gap: 10px; background: #f9f9f9; padding: 10px 12px; border-radius: 6px; } /* 减小间隙和内边距 */
+    .info-item { display: flex; align-items: center; gap: 10px; background: #f9f9f9; padding: 12px; border-radius: 6px; } /* 增加内边距 */
     .info-item i { font-size: 1.1em; color: #007BFF; }
     .info-item a { color: #007BFF; }
 
     /* Footer */
     footer { text-align: center; padding: 30px 15px; color: #555; font-size: 0.85em; } /* 减小内边距和字体大小 */
 
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: #007BFF;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9998;
+      background: rgba(255,255,255,0.98);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .mobile-nav.active {
+      display: flex;
+    }
+    
+    .mobile-nav a {
+      display: block;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      width: 100%;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
     /* Responsive */
     @media(max-width: 768px) {
       .hero, .about, .project-card { flex-direction: column; text-align: center; }
+      .hero-content { max-width: 100%; }
       .personal-info { grid-template-columns: 1fr; }
-      section { padding: 30px 10px; } /* 修改: 响应式内边距 */
-      .hero { padding: 20px 5%; } /* 修改: 响应式内边距 */
+      section { padding: 30px 15px; } /* 增加移动设备上的内边距 */
+      .hero { padding: 30px 5%; } /* 增加移动设备上的内边距 */
+      
+      /* 移动设备上的按钮大小 */
+      .btn { padding: 14px 26px; }
+      
+      /* 移动导航 */
+      .mobile-nav-toggle { display: flex; justify-content: center; align-items: center; }
+      
+      /* 调整KPI卡片布局 */
+      .kpi-cards { grid-template-columns: repeat(2, 1fr); }
+      
+      /* 调整技能卡片布局 */
+      .skills-container { grid-template-columns: 1fr; }
+      
+      /* 调整项目卡片布局 */
+      .project-card { flex-direction: column; }
+      .project-text, .project-img { min-width: 100%; }
+      
+      /* 增加触摸友好的链接和按钮间距 */
+      .info-item { padding: 15px; }
+      
+      /* 调整字体大小以提高可读性 */
+      .hero h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.5rem; }
+    }
+    
+    @media(max-width: 480px) {
+      /* 超小屏幕调整 */
+      .kpi-cards { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; }
+      .hero img { width: 120px; height: 120px; }
+      .hero h1 { font-size: 1.6rem; }
+      section { padding: 25px 10px; }
     }
   </style>
 </head>
 <body>
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <!-- Mobile Navigation Menu -->
+  <nav class="mobile-nav">
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#languages">Languages</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -84,14 +184,15 @@
       <h1>Yaqi Yin</h1>
       <p>Group Senior Web Analyst | Enhancing Online Sales & Customer Journeys</p>
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">Download CV</a>
-        <a href="#contact" class="btn-outline">Contact Me</a>
+        <a href="#" class="btn btn-primary">Download CV</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
     <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
   </section>
+  
   <!-- About -->
-  <section>
+  <section id="about">
     <h2>About Me</h2>
     <p>Data-driven Digital Marketing & Analytics professional with 5+ years of experience in web analytics, digital performance tracking, and e-commerce optimization across Europe and APAC. Proven track record in GA4, Power BI, Looker Studio, and NPS analytics to uncover behavioral insights, optimize conversion funnels, and improve customer journeys.</p>
     <!-- KPI -->
@@ -102,8 +203,9 @@
       <div class="kpi-card"><span data-target="25">0</span>Conversion Increase %</div>
     </div>
   </section>
+  
   <!-- Key Projects -->
-  <section>
+  <section id="projects">
     <h2>Key Projects</h2>
     <div class="projects">
       <div class="project-card">
@@ -135,8 +237,9 @@
       </div>
     </div>
   </section>
+  
   <!-- Experience -->
-  <section>
+  <section id="experience">
     <h2>Experience</h2>
     <div class="experience-card">
       <h3>Heras B.V. – Digital Marketing Coordinator</h3>
@@ -160,8 +263,9 @@
       </ul>
     </div>
   </section>
-<!-- Education -->
-  <section>
+  
+  <!-- Education -->
+  <section id="education">
     <h2>Education Backgrounds</h2>
     <div class="experience-card">
       <h3>University of Twente – Master of Business Administration (MSc)</h3>
@@ -174,8 +278,9 @@
       <span>Apr 2024 – Apr 2025</span>
     </div>
   </section>
- <!-- Skills -->
-  <section class="skills">
+  
+  <!-- Skills -->
+  <section class="skills" id="skills">
     <h2>Core Skills</h2>
     <div class="skills-container">
       <div class="card">
@@ -198,7 +303,7 @@
   </section>
 
   <!-- languages -->
-  <section>
+  <section id="languages">
     <h2>Languages</h2>
     <div class="tools">
       <div class="tool">Chinese: Native Proficiency</div>
@@ -218,6 +323,7 @@
       <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>Noord-Brabant, Netherlands</span></div>
     </div>
   </section>
+  
   <!-- Footer -->
   <footer>
     &copy; 2025 Yaqi Yin | Digital Marketing
@@ -248,11 +354,33 @@
       });
     }, { threshold: 0.5 });
     counters.forEach(counter => observer.observe(counter));
+    
+    // 移动导航菜单功能
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const navLinks = document.querySelectorAll('.mobile-nav a');
+    
+    navToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      const icon = navToggle.querySelector('i');
+      if (mobileNav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    
+    // 点击导航链接后关闭菜单
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
