@@ -11,63 +11,64 @@
   <style>
     /* Reset & Base */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-    body { color: #111; background-color: #fff; line-height: 1.6; }
+    body { color: #111; background-color: #fff; line-height: 1.5; } /* 减小行高 */
     a { text-decoration: none; color: inherit; }
-    section { padding: 70px 20px; max-width: 1000px; margin: 0 auto; }
-    h2 { margin-bottom: 20px; color: #111; border-bottom:2px solid #007BFF; display:inline-block; padding-bottom:5px; }
+    section { padding: 40px 15px; max-width: 1000px; margin: 0 auto; } /* 减小内边距 */
+    h2 { margin-bottom: 20px; color: #111; border-bottom:2px solid #007BFF; display:inline-block; padding-bottom:3px; } /* 减小底部边距和内边距 */
 
     /* Buttons */
-    .btn { padding: 12px 25px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; display: inline-block; }
+    .btn { padding: 10px 20px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; display: inline-block; } /* 减小内边距 */
     .btn:hover { background: #0056b3; }
 
- /* Hero Section */
-    .hero { display: flex; align-items: center; justify-content: space-between; padding: 40px 10%; background: #f8f9fa; }
+    /* Hero Section */
+    .hero { display: flex; align-items: center; justify-content: space-between; padding: 30px 8%; background: #f8f9fa; } /* 减小内边距 */
     .hero-content { max-width: 55%; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 8px; }
-    .hero p { font-size: 1.1rem; margin-bottom: 15px; }
-    .hero-buttons a { margin-right: 10px; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 8px; } /* 减小底部边距 */
+    .hero p { font-size: 1rem; margin-bottom: 15px; } /* 减小底部边距 */
+    .hero-buttons a { margin-right: 8px; padding: 8px 16px; border-radius: 5px; font-weight: bold; } /* 减小外边距和内边距 */
     .btn-primary { background: #007bff; color: white; }
     .btn-outline { border: 2px solid #007bff; color: #007bff; }
-    .hero img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
-
+    .hero img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; } /* 减小图片尺寸 */
 
     /* KPI Cards */
-    .kpi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:15px; margin-top:20px; }
-    .kpi-card { background:#f9f9f9; border-radius:10px; padding:20px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
-    .kpi-card span { display:block; font-size:1.5em; color:#007BFF; font-weight:bold; margin-bottom:3px; }
+    .kpi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:15px; margin-top:20px; } /* 减小间隙和顶部边距 */
+    .kpi-card { background:#f9f9f9; border-radius:8px; padding:15px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.05); } /* 减小内边距 */
+    .kpi-card span { display:block; font-size:1.3em; color:#007BFF; font-weight:bold; margin-bottom:3px; } /* 减小底部边距 */
 
     /* Skills */
-    .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-    .skills-container .card { background: #f0f0f0; padding: 20px; border-radius: 10px; }
-    .skills-container .card h3 { margin-bottom: 8px; font-size: 1.1em; }
+    .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; } /* 减小间隙 */
+    .skills-container .card { background: #f0f0f0; padding: 15px; border-radius: 8px; } /* 减小内边距 */
+    .skills-container .card h3 { margin-bottom: 8px; font-size: 1em; } /* 减小底部边距 */
 
     /* Experience & Projects */
-    .experience-card, .project-card { background: #f9f9f9; padding: 20px; margin-bottom: 20px; border-radius: 8px; transition: 0.3s; }
+    .experience-card, .project-card { background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 6px; transition: 0.3s; } /* 减小内边距和底部边距 */
     .experience-card:hover, .project-card:hover { background: #eaeaea; }
-    .experience-card h3, .project-card h3 { font-weight: 600; margin-bottom: 8px; }
-    .experience-card span { font-style: italic; color: #555; font-size: 0.9em; }
-    .experience-card ul { padding-left: 20px; margin-top: 8px; }
+    .experience-card h3, .project-card h3 { font-weight: 600; margin-bottom: 6px; } /* 减小底部边距 */
+    .experience-card span { font-style: italic; color: #555; font-size: 0.85em; } /* 减小字体大小 */
+    .experience-card ul { padding-left: 18px; margin-top: 8px; } /* 减小左侧内边距和顶部边距 */
 
     /* Projects Section (优化) */
-    .projects { display: flex; flex-direction: column; gap: 20px; }
-    .project-card { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
-    .project-text { flex: 1; min-width: 250px; }
-    .project-img { flex: 1; min-width: 250px; text-align: center; }
-    .project-img img { width: 100%; max-width: 400px; border-radius: 8px; object-fit: cover; }
+    .projects { display: flex; flex-direction: column; gap: 15px; } /* 减小间隙 */
+    .project-card { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; } /* 减小间隙 */
+    .project-text { flex: 1; min-width: 230px; }
+    .project-img { flex: 1; min-width: 230px; text-align: center; }
+    .project-img img { width: 100%; max-width: 350px; border-radius: 6px; object-fit: cover; } /* 减小最大宽度 */
 
     /* Personal Info (替代 Contact Form) */
-    .personal-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 600px; }
-    .info-item { display: flex; align-items: center; gap: 12px; background: #f9f9f9; padding: 12px 15px; border-radius: 8px; }
-    .info-item i { font-size: 1.2em; color: #007BFF; }
+    .personal-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 600px; } /* 减小间隙 */
+    .info-item { display: flex; align-items: center; gap: 10px; background: #f9f9f9; padding: 10px 12px; border-radius: 6px; } /* 减小间隙和内边距 */
+    .info-item i { font-size: 1.1em; color: #007BFF; }
     .info-item a { color: #007BFF; }
 
     /* Footer */
-    footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9em; }
+    footer { text-align: center; padding: 30px 15px; color: #555; font-size: 0.85em; } /* 减小内边距和字体大小 */
 
     /* Responsive */
     @media(max-width: 768px) {
       .hero, .about, .project-card { flex-direction: column; text-align: center; }
       .personal-info { grid-template-columns: 1fr; }
+      section { padding: 30px 10px; } /* 修改: 响应式内边距 */
+      .hero { padding: 20px 5%; } /* 修改: 响应式内边距 */
     }
   </style>
 </head>
@@ -76,20 +77,19 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Yaqi Yin Yin</h1>
-      <p>Group Senior Web Analyst| Enhancing Online Sales & Customer Journeys</p>
+      <h1>Yaqi Yin</h1>
+      <p>Group Senior Web Analyst | Enhancing Online Sales & Customer Journeys</p>
       <div class="hero-buttons">
         <a href="#" class="btn-primary">Download CV</a>
         <a href="#contact" class="btn-outline">Contact Me</a>
       </div>
     </div>
-    <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Yaqi Yin">
   </section>
   <!-- About -->
   <section>
     <h2>About Me</h2>
-    <p>Proven track record in GA4, Power BI, Looker Studio, and NPS analytics to uncover behavioral insights, optimize conversion funnels, and improve customer journeys.
-</p>
+    <p>Proven track record in GA4, Power BI, Looker Studio, and NPS analytics to uncover behavioral insights, optimize conversion funnels, and improve customer journeys.</p>
     <!-- KPI -->
     <div class="kpi-cards">
       <div class="kpi-card"><span data-target="10000">0</span>Orders/Month</div>
@@ -108,7 +108,7 @@
           <p>Launched dashboard report framework with GA4, Power BI and Looker Studio for real-time KPI tracking across 10+ websites.</p>
         </div>
         <div class="project-img">
-          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dashboard Project">
         </div>
       </div>
       <div class="project-card">
@@ -216,7 +216,4 @@
     counters.forEach(counter => observer.observe(counter));
   </script>
 </body>
-
 </html>
-
-
