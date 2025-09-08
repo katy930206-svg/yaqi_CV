@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaqi Yin | Digital Marketing</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    body { color: #111; background-color: #fff; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 70px 20px; max-width: 1000px; margin: 0 auto; }
+    h2 { margin-bottom: 30px; color: #111; border-bottom:2px solid #007BFF; display:inline-block; padding-bottom:5px; }
+
+    /* Buttons */
+    .btn { padding: 12px 25px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; text-align: center; display: inline-block; }
+    .btn:hover { background: #0056b3; }
+
+ /* Hero Section */
+    .hero { display: flex; align-items: center; justify-content: space-between; padding: 40px 10%; background: #f8f9fa; }
+    .hero-content { max-width: 55%; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.1rem; margin-bottom: 20px; }
+    .hero-buttons a { margin-right: 10px; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+    .btn-primary { background: #007bff; color: white; }
+    .btn-outline { border: 2px solid #007bff; color: #007bff; }
+    .hero img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+
+
+    /* KPI Cards */
+    .kpi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:20px; margin-top:30px; }
+    .kpi-card { background:#f9f9f9; border-radius:10px; padding:20px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    .kpi-card span { display:block; font-size:1.5em; color:#007BFF; font-weight:bold; margin-bottom:5px; }
+
+    /* Skills */
+    .skills, .tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .skill, .tool { background: #f9f9f9; color: #000; padding: 10px 15px; font-weight: 500; border-radius: 5px; }
+
+    /* Core Skills */
+    .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .skills-container .card { background: #f0f0f0; padding: 20px; border-radius: 10px; }
+    .skills-container .card h3 { margin-bottom: 10px; font-size: 1.1em; }
+
+    /* Experience & Projects */
+    .experience-card, .project-card { background: #f9f9f9; padding: 20px; margin-bottom: 20px; border-radius: 8px; transition: 0.3s; }
+    .experience-card:hover, .project-card:hover { background: #eaeaea; }
+    .experience-card h3, .project-card h3 { font-weight: 600; margin-bottom: 8px; }
+    .experience-card span { font-style: italic; color: #555; font-size: 0.9em; }
+    .experience-card ul { padding-left: 20px; margin-top: 10px; }
+
+    /* Projects Section (优化) */
+    .projects { display: flex; flex-direction: column; gap: 20px; }
+    .project-card { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+    .project-text { flex: 1; min-width: 250px; }
+    .project-img { flex: 1; min-width: 250px; text-align: center; }
+    .project-img img { width: 100%; max-width: 400px; border-radius: 8px; object-fit: cover; }
+
+    /* Personal Info (替代 Contact Form) */
+    .personal-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 600px; }
+    .info-item { display: flex; align-items: center; gap: 12px; background: #f9f9f9; padding: 12px 15px; border-radius: 8px; }
+    .info-item i { font-size: 1.2em; color: #007BFF; }
+    .info-item a { color: #007BFF; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9em; }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .hero, .about, .project-card { flex-direction: column; text-align: center; }
+      .personal-info { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Yaqi Yin Yin</h1>
+      <p>Group Senior Web Analyst| Enhancing Online Sales & Customer Journeys</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Download CV</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+    <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
+  </section>
+  <!-- About -->
+  <section>
+
+  <!-- Personal Info -->
+  <section id="contact">
+    <h2>Personal Information</h2>
+    <div class="personal-info">
+      <div class="info-item"><i class="fas fa-phone"></i> <span>+31 6 5534 3532</span></div>
+      <div class="info-item"><i class="fas fa-envelope"></i> <a href="mailto:katy930306@gmail.com">katy930306@gmail.com</a></div>
+      <div class="info-item"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/katyyin" target="_blank">linkedin.com/in/katyyin</a></div>
+      <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>Noord-Brabant, Netherlands</span></div>
+    </div>
+  </section>
+
+    <h2>About Me</h2>
+    <p>Proven track record in GA4, Power BI, Looker Studio, and NPS analytics to uncover behavioral insights, optimize conversion funnels, and improve customer journeys.</p>
+
+    <!-- KPI -->
+    <div class="kpi-cards">
+      <div class="kpi-card"><span data-target="10000">0</span>Orders/Month</div>
+      <div class="kpi-card"><span data-target="300000">0</span>Revenue/Month</div>
+      <div class="kpi-card"><span data-target="30">0</span>Web Traffic Increase %</div>
+      <div class="kpi-card"><span data-target="25">0</span>Conversion Increase %</div>
+    </div>
+  </section>
+
+  <!-- Key Projects -->
+  <section>
+    <h2>Key Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <div class="project-text">
+          <h3>Web Analytics & Reporting Automation</h3>
+          <p>Launched dashboard report framework with GA4, Power BI and Looker Studio for real-time KPI tracking across 10+ websites.</p>
+        </div>
+        <div class="project-img">
+          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project">
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-text">
+          <h3>Website UX Optimization</h3>
+          <ul>
+            <li>Led UX and performance enhancements across 10+ country websites.</li>
+            <li>Reduced bounce rate by 24% and boosted engagement by 40%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-text">
+          <h3>Sector Online Campaign</h3>
+          <ul>
+            <li>Increased MQLs by 40% YoY through SEO, Google Ads, and multi-channel strategy.</li>
+            <li>Improved conversion rate by 25% via A/B testing CTAs and landing pages.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section>
+    <h2>Experience</h2>
+    <div class="experience-card">
+      <h3>Heras B.V. – Digital Marketing Coordinator</h3>
+      <span>Mar 2019 – Apr 2024</span>
+      <ul>
+        <li>Designed and implemented multi-country GA4 & Power BI dashboards.</li>
+        <li>Analyzed website funnels to support UX design and conversion uplift.</li>
+        <li>Managed SEO/SEM, automation, display ads with measurable outcomes.</li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h3>Meituan 7+1 Supermarket – Store Manager</h3>
+      <span>Apr 2024 – Apr 2025</span>
+      <ul>
+        <li>Launched new digital-first front warehouse store, driving data-informed operations.</li>
+        <li>Delivered 10,000+ monthly orders & ¥30,000+ revenue in 6 months.</li>
+        <li>Achieved top 5 in regional customer satisfaction.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills & Tools -->
+  <section>
+    <h2>Skills & Tools</h2>
+    <div class="tools">
+      <div class="tool">GA4, Power BI, Looker Studio</div>
+      <div class="tool">Conversion Funnel Optimization</div>
+      <div class="tool">Customer Insights & NPS</div>
+      <div class="tool">Google Ads, SEO, Hubspot</div>
+    </div>
+  </section>
+
+<!-- Core Skills -->
+  <section class="skills">
+    <h2>Core Skills</h2>
+    <div class="skills-container">
+      <div class="card">
+        <h3>Advertising & SEO</h3>
+        <p>Google Ads, SEO Strategy, Social Media Ads, Conversion Optimization</p>
+      </div>
+      <div class="card">
+        <h3>Analytics & Tools</h3>
+        <p>Google Analytics, Power BI, Looker Studio, HubSpot, Automation</p>
+      </div>
+      <div class="card">
+        <h3>Soft Skills</h3>
+        <p>Project Management, Cross-team Collaboration, Customer Experience</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Personal Info -->
+  <section id="contact">
+    <h2>Personal Information</h2>
+    <div class="personal-info">
+      <div class="info-item"><i class="fas fa-phone"></i> <span>+31 6 1234 5678</span></div>
+      <div class="info-item"><i class="fas fa-envelope"></i> <a href="mailto:katy@example.com">katy@example.com</a></div>
+      <div class="info-item"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/katyyin" target="_blank">linkedin.com/in/katyyin</a></div>
+      <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>Amsterdam, Netherlands</span></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Yaqi Yin | Digital Marketing
+  </footer>
+
+  <script>
+    // KPI 数字滚动动画
+    const counters = document.querySelectorAll('.kpi-card span');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          let count = 0;
+          const increment = target / 100;
+          const update = () => {
+            count += increment;
+            if(count < target){
+              counter.innerText = Math.ceil(count).toLocaleString();
+              requestAnimationFrame(update);
+            } else {
+              counter.innerText = target.toLocaleString();
+            }
+          };
+          update();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(counter => observer.observe(counter));
+  </script>
+</body>
+</html>
