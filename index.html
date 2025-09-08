@@ -123,8 +123,80 @@
       align-items: center; 
     }
     .project-text { flex: 1; min-width: 230px; }
-    .project-img { flex: 1; min-width: 230px; text-align: center; }
-    .project-img img { width: 100%; max-width: 350px; border-radius: 6px; object-fit: cover; }
+    .project-img { flex: 1; min-width: 230px; text-align: center; position: relative; }
+    .project-img img { 
+      width: 100%; 
+      max-width: 350px; 
+      border-radius: 6px; 
+      object-fit: cover; 
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+    .project-img img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* 图片缩放模态框 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal.show {
+      display: block;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      display: block;
+      margin: 5% auto;
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      animation: zoom 0.3s ease;
+    }
+    
+    @keyframes zoom {
+      from {transform: scale(0.8);}
+      to {transform: scale(1);}
+    }
+    
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .close:hover {
+      color: #bbb;
+    }
+    
+    .caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
     
     /* Languages */
     .languages, .tools { 
@@ -243,6 +315,18 @@
       
       .hero h1 { font-size: 1.8rem; }
       h2 { font-size: 1.5rem; }
+      
+      /* 移动端模态框调整 */
+      .modal-content {
+        margin: 15% auto;
+        max-width: 95%;
+      }
+      
+      .close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+      }
     }
     
     @media(max-width: 480px) {
@@ -309,7 +393,7 @@
           <p>Launched dashboard report framework with GA4, Power BI and Looker Studio for real-time KPI tracking across 10+ websites.</p>
         </div>
         <div class="project-img">
-          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project">
+          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project" onclick="openModal(this)">
         </div>
       </div>
       <div class="project-card">
@@ -332,6 +416,13 @@
       </div>
     </div>
   </section>
+  
+  <!-- 图片模态框 -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption" class="caption"></div>
+  </div>
   
   <!-- Experience -->
   <section id="experience">
@@ -476,7 +567,42 @@
         icon.classList.add('fa-bars');
       });
     });
+    
+    // 图片缩放功能
+    function openModal(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("caption");
+      
+      modal.classList.add("show");
+      modalImg.src = img.src;
+      captionText.innerHTML = img.alt;
+      
+      // 禁用页面滚动
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.classList.remove("show");
+      
+      // 启用页面滚动
+      document.body.style.overflow = 'auto';
+    }
+    
+    // 点击模态框外部关闭
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+    
+    // ESC键关闭模态框
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
-
