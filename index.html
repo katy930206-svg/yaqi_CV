@@ -111,48 +111,60 @@
     .experience-card span { font-style: italic; color: #555; font-size: 0.85em; }
     .experience-card ul { padding-left: 18px; margin-top: 8px; }
 
-    /* Projects Section */
+    /* Projects Section - 优化布局 */
     .projects { 
       display: flex; 
       flex-direction: column; 
-      gap: 15px; 
+      gap: 25px; 
     }
+    
     .project-card { 
       display: flex; 
       flex-wrap: wrap; 
-      gap: 15px; 
-      align-items: center; 
+      gap: 20px; 
+      align-items: flex-start;
+      padding: 20px;
     }
-    .project-text { flex: 1; min-width: 230px; }
-    .project-img { flex: 1; min-width: 230px; text-align: center; position: relative; }
+    
+    .project-text { 
+      flex: 1; 
+      min-width: 300px; 
+    }
+    
+    .project-img { 
+      flex: 1; 
+      min-width: 300px; 
+      text-align: center; 
+      position: relative;
+    }
+    
     .project-img img { 
       width: 100%; 
-      max-width: 350px; 
-      border-radius: 6px; 
+      max-width: 100%; 
+      border-radius: 8px; 
       object-fit: cover; 
       cursor: zoom-in;
       transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    
     .project-img img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     
-    /* 修复GIF布局问题 */
-    .project-card-with-gif {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
+    /* 交替布局 */
+    .project-card:nth-child(even) {
+      flex-direction: row-reverse;
     }
     
-    .project-content {
-      flex: 2;
-      min-width: 300px;
+    /* GIF项目特殊样式 */
+    .project-card.gif-project {
+      flex-direction: column;
     }
     
     .gif-container {
-      flex: 1;
-      min-width: 250px;
+      width: 100%;
       text-align: center;
       margin-top: 20px;
     }
@@ -160,7 +172,24 @@
     .gif-container img {
       max-width: 100%;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* 项目标签 */
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .project-tag {
+      background: #e9f0ff;
+      color: #007BFF;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: 500;
     }
     
     /* 图片缩放模态框 */
@@ -339,16 +368,12 @@
       
       .skills-container { grid-template-columns: 1fr; }
       
-      .project-card { flex-direction: column; }
-      .project-text, .project-img { min-width: 100%; }
-      
-      /* 移动端GIF布局调整 */
-      .project-card-with-gif {
-        flex-direction: column;
+      .project-card, .project-card:nth-child(even) { 
+        flex-direction: column; 
       }
       
-      .project-content, .gif-container {
-        min-width: 100%;
+      .project-text, .project-img { 
+        min-width: 100%; 
       }
       
       .info-item { padding: 15px; }
@@ -375,6 +400,10 @@
       .hero img { width: 120px; height: 120px; }
       .hero h1 { font-size: 1.6rem; }
       section { padding: 15px 10px; }
+      
+      .project-card {
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -427,42 +456,63 @@
   <section id="projects">
     <h2>Key Projects</h2>
     <div class="projects">
+      <!-- 项目1 -->
       <div class="project-card">
         <div class="project-text">
           <h3>Web Analytics & Reporting Automation</h3>
           <p>Launched dashboard report framework with GA4, Power BI, and Looker Studio for real-time KPI tracking across 10+ websites.</p>
+          <div class="project-tags">
+            <span class="project-tag">GA4</span>
+            <span class="project-tag">Power BI</span>
+            <span class="project-tag">Looker Studio</span>
+            <span class="project-tag">Automation</span>
+          </div>
         </div>
         <div class="project-img">
           <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project" onclick="openModal(this)">
         </div>
       </div>
       
-      <!-- Website UX Optimization 项目 - 添加图片位置 -->
+      <!-- 项目2 -->
       <div class="project-card">
         <div class="project-text">
           <h3>Website UX Optimization</h3>
+          <p>Led UX and performance enhancements across 10+ country websites, reducing bounce rate by 24% and boosting engagement by 40%.</p>
           <ul>
-            <li>Led UX and performance enhancements across 10+ country websites.</li>
-            <li>Reduced bounce rate by 24% and boosted engagement by 40%.</li>
+            <li>Conducted comprehensive user research and A/B testing</li>
+            <li>Improved navigation and content structure</li>
+            <li>Optimized page load times and mobile responsiveness</li>
           </ul>
+          <div class="project-tags">
+            <span class="project-tag">UX Research</span>
+            <span class="project-tag">A/B Testing</span>
+            <span class="project-tag">Performance</span>
+          </div>
         </div>
         <div class="project-img">
           <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="UX Optimization Project" onclick="openModal(this)">
         </div>
       </div>
       
-      <!-- 修复GIF布局的项目卡片 -->
-      <div class="project-card project-card-with-gif">
-        <div class="project-content">
+      <!-- 项目3 - GIF项目 -->
+      <div class="project-card gif-project">
+        <div class="project-text">
           <h3>Sector Online Campaign</h3>
+          <p>Increased MQLs by 40% YoY through SEO, Google Ads, and multi-channel online strategy. Improved conversion rate by 25% via A/B testing CTAs and landing pages.</p>
           <ul>
-            <li>Increased MQLs by 40% YoY through SEO, Google Ads, and multi-channel online strategy.</li>
-            <li>Improved conversion rate by 25% via A/B testing CTAs and landing pages.</li>
+            <li>Developed and executed comprehensive digital marketing strategy</li>
+            <li>Optimized landing pages and conversion funnels</li>
+            <li>Managed multi-channel advertising campaigns</li>
           </ul>
+          <div class="project-tags">
+            <span class="project-tag">SEO</span>
+            <span class="project-tag">Google Ads</span>
+            <span class="project-tag">Conversion Optimization</span>
+          </div>
         </div>
         <div class="gif-container">
-          <!-- 使用在线GIF示例，确保路径正确 -->
           <img src="./Pics/delta promotion campaign.gif" alt="Promotion Campaign GIF">
+          <p class="gif-caption">Campaign performance metrics and growth analysis</p>
         </div>
       </div>
     </div>
@@ -657,6 +707,3 @@
   </script>
 </body>
 </html>
-
-
-
