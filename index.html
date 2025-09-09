@@ -26,6 +26,26 @@
       padding-bottom: 3px; 
     }
 
+    /* Lazy loading styles */
+    .lazy-media {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .lazy-media.loaded {
+      opacity: 1;
+    }
+    
+    .lazy-placeholder {
+      background: #f0f0f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+    }
+    
     /* Buttons */
     .btn { 
       padding: 12px 24px; 
@@ -57,7 +77,7 @@
       flex-wrap: wrap; 
       gap: 10px; 
       margin-bottom: 15px; 
-      justify-content: flex-start; /* 默认左对齐 */
+      justify-content: flex-start;
     }
     .btn-primary { background: #007bff; color: white; }
     .btn-outline { border: 2px solid #007bff; color: #007bff; background: transparent; }
@@ -111,7 +131,7 @@
     .experience-card span { font-style: italic; color: #555; font-size: 0.85em; }
     .experience-card ul { padding-left: 18px; margin-top: 8px; }
 
-    /* Projects Section - 优化布局 */
+    /* Projects Section */
     .projects { 
       display: flex; 
       flex-direction: column; 
@@ -158,21 +178,18 @@
       flex-direction: row-reverse;
     }
     
-    /* GIF项目特殊样式 */
-    .project-card.gif-project {
-      flex-direction: column;
-    }
-    
-    .gif-container {
+    /* 视频项目样式 */
+    .video-container {
       width: 100%;
-      text-align: center;
-      margin-top: 20px;
+      margin-top: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     
-    .gif-container img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .video-container video {
+      width: 100%;
+      display: block;
     }
     
     /* 项目标签 */
@@ -355,7 +372,6 @@
       section { padding: 20px 15px; }
       .hero { padding: 20px 5%; }
       
-      /* 移动端按钮居中 */
       .hero-buttons { 
         justify-content: center; 
       }
@@ -381,7 +397,6 @@
       .hero h1 { font-size: 1.8rem; }
       h2 { font-size: 1.5rem; }
       
-      /* 移动端模态框调整 */
       .modal-content {
         margin: 15% auto;
         max-width: 95%;
@@ -435,7 +450,7 @@
       </div>
     </div>
     <div class="hero-img">
-      <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin">
+      <img src="./Pics/yaqi_pic.jpg" alt="Yaqi Yin" loading="lazy">
     </div>
   </section>
   
@@ -469,7 +484,13 @@
           </div>
         </div>
         <div class="project-img">
-          <img src="./Pics/AB testing.jpg" alt="AB Testing" onclick="openModal(this)">
+          <div class="lazy-placeholder" style="height: 250px;">Loading image...</div>
+          <img 
+            data-src="./Pics/YY Sample LS Dashboard_LS version.png" 
+            alt="Dashboard Project" 
+            class="lazy-media"
+            onclick="openModal(this)"
+            loading="lazy">
         </div>
       </div>
       
@@ -490,12 +511,18 @@
           </div>
         </div>
         <div class="project-img">
-          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="UX Optimization Project" onclick="openModal(this)">
+          <div class="lazy-placeholder" style="height: 250px;">Loading image...</div>
+          <img 
+            data-src="./Pics/AB testing.jpg" 
+            alt="UX Optimization Project" 
+            class="lazy-media"
+            onclick="openModal(this)"
+            loading="lazy">
         </div>
       </div>
       
       <!-- 项目3 - GIF项目 -->
-      <div class="project-card gif-project">
+      <div class="project-card">
         <div class="project-text">
           <h3>Sector Online Campaign</h3>
           <p>Increased MQLs by 40% YoY through SEO, Google Ads, and multi-channel online strategy. Improved conversion rate by 25% via A/B testing CTAs and landing pages.</p>
@@ -510,9 +537,43 @@
             <span class="project-tag">Conversion Optimization</span>
           </div>
         </div>
-        <div class="gif-container">
-          <img src="./Pics/delta promotion campaign.gif" alt="Promotion Campaign GIF">
-          <p class="gif-caption">Campaign performance metrics and growth analysis</p>
+        <div class="project-img">
+          <div class="lazy-placeholder" style="height: 250px;">Loading GIF...</div>
+          <img 
+            data-src="./Pics/delta promotion campaign.gif" 
+            alt="Promotion Campaign GIF" 
+            class="lazy-media"
+            loading="lazy">
+        </div>
+      </div>
+      
+      <!-- 项目4 - MP4视频项目 -->
+      <div class="project-card">
+        <div class="project-text">
+          <h3>Customer Journey Analysis</h3>
+          <p>Developed comprehensive customer journey mapping and analysis to identify key touchpoints and optimize conversion paths across multiple channels.</p>
+          <ul>
+            <li>Created interactive journey maps for different customer segments</li>
+            <li>Identified key friction points and opportunities for improvement</li>
+            <li>Implemented personalized experiences based on journey analytics</li>
+          </ul>
+          <div class="project-tags">
+            <span class="project-tag">Journey Mapping</span>
+            <span class="project-tag">Analytics</span>
+            <span class="project-tag">Personalization</span>
+          </div>
+        </div>
+        <div class="project-img">
+          <div class="lazy-placeholder" style="height: 250px;">Loading video...</div>
+          <video 
+            class="lazy-media"
+            controls 
+            poster="https://placehold.co/600x400/6f42c1/white?text=Video+Demo"
+            preload="none"
+            data-src="https://assets.codepen.io/2362/small.mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Customer journey analysis process and results</p>
         </div>
       </div>
     </div>
@@ -574,11 +635,11 @@
         <h3>Analytics & Tools</h3>
         <p>Google Analytics, Power BI, Looker Studio, HubSpot, Automation</p>
       </div>
-            <div class="card">
+      <div class="card">
         <h3>Web/Mobile Optimization</h3>
         <p>UX, A/B testing, GDPR Compliance</p>
       </div>
-            <div class="card">
+      <div class="card">
         <h3>Advertising & SEO</h3>
         <p>Google Ads, SEO Strategy, Social Media Ads, Conversion Optimization</p>
       </div>
@@ -596,7 +657,6 @@
       <div class="tool">Chinese: Native Proficiency</div>
       <div class="tool">English: Full Professional Working Proficiency </div>
       <div class="tool">Dutch:Limietd Working Proficiency</div>
-      
     </div>
   </section>
 
@@ -617,6 +677,65 @@
   </footer>
 
   <script>
+    // Lazy loading implementation
+    document.addEventListener('DOMContentLoaded', function() {
+      const lazyMedia = document.querySelectorAll('.lazy-media');
+      
+      if ('IntersectionObserver' in window) {
+        // 使用Intersection Observer API（现代浏览器）
+        const lazyMediaObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const media = entry.target;
+              
+              if (media.tagName === 'IMG') {
+                media.src = media.getAttribute('data-src');
+              } else if (media.tagName === 'VIDEO') {
+                const source = document.createElement('source');
+                source.src = media.getAttribute('data-src');
+                source.type = 'video/mp4';
+                media.appendChild(source);
+              }
+              
+              media.classList.add('loaded');
+              lazyMediaObserver.unobserve(media);
+              
+              // 移除占位符
+              const placeholder = media.previousElementSibling;
+              if (placeholder && placeholder.classList.contains('lazy-placeholder')) {
+                placeholder.style.display = 'none';
+              }
+            }
+          });
+        }, {
+          rootMargin: '0px 0px 100px 0px' // 提前100px加载
+        });
+
+        lazyMedia.forEach(media => {
+          lazyMediaObserver.observe(media);
+        });
+      } else {
+        // 回退方案：直接加载所有媒体
+        lazyMedia.forEach(media => {
+          if (media.tagName === 'IMG') {
+            media.src = media.getAttribute('data-src');
+          } else if (media.tagName === 'VIDEO') {
+            const source = document.createElement('source');
+            source.src = media.getAttribute('data-src');
+            source.type = 'video/mp4';
+            media.appendChild(source);
+          }
+          media.classList.add('loaded');
+          
+          // 移除占位符
+          const placeholder = media.previousElementSibling;
+          if (placeholder && placeholder.classList.contains('lazy-placeholder')) {
+            placeholder.style.display = 'none';
+          }
+        });
+      }
+    });
+
     // KPI 数字滚动动画
     const counters = document.querySelectorAll('.kpi-card span');
     const observer = new IntersectionObserver((entries) => {
@@ -707,4 +826,3 @@
   </script>
 </body>
 </html>
-
