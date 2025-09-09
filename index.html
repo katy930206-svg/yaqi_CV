@@ -14,12 +14,12 @@
     body { color: #111; background-color: #fff; line-height: 1.5; }
     a { text-decoration: none; color: inherit; }
     section { 
-      padding: 20px 15px; /* 减少内边距为原来的一半 */
+      padding: 20px 15px;
       max-width: 1000px; 
       margin: 0 auto; 
     }
     h2 { 
-      margin-bottom: 15px; /* 减少底部边距 */
+      margin-bottom: 15px;
       color: #111; 
       border-bottom: 2px solid #007BFF; 
       display: inline-block; 
@@ -46,7 +46,7 @@
       display: flex; 
       align-items: center; 
       justify-content: space-between; 
-      padding: 25px 8%; /* 减少内边距 */
+      padding: 25px 8%;
       background: #f8f9fa; 
     }
     .hero-content { max-width: 55%; }
@@ -67,7 +67,7 @@
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
       gap: 15px; 
-      margin-top: 15px; /* 减少顶部边距 */
+      margin-top: 15px;
     }
     .kpi-card { 
       background: #f9f9f9; 
@@ -101,7 +101,7 @@
     .experience-card, .project-card { 
       background: #f9f9f9; 
       padding: 15px; 
-      margin-bottom: 12px; /* 减少底部边距 */
+      margin-bottom: 12px;
       border-radius: 6px; 
       transition: 0.3s; 
     }
@@ -135,6 +135,31 @@
     .project-img img:hover {
       transform: scale(1.02);
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* 修复GIF布局问题 */
+    .project-card-with-gif {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    
+    .project-content {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .gif-container {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .gif-container img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     /* 图片缩放模态框 */
@@ -203,7 +228,7 @@
       display: flex; 
       flex-wrap: wrap; 
       gap: 10px; 
-      margin-top: 15px; /* 减少顶部边距 */
+      margin-top: 15px;
     }
     .language, .tool { 
       background: #f9f9f9; 
@@ -234,7 +259,7 @@
     /* Footer */
     footer { 
       text-align: center; 
-      padding: 20px 15px; /* 减少内边距 */
+      padding: 20px 15px;
       color: #555; 
       font-size: 0.85em; 
     }
@@ -295,10 +320,10 @@
     @media(max-width: 768px) {
       .hero, .about, .project-card { flex-direction: column; text-align: center; }
       .hero-content { max-width: 100%; order: 2; }
-      .hero-img { order: 1; margin-bottom: 15px; } /* 减少底部边距 */
+      .hero-img { order: 1; margin-bottom: 15px; }
       .personal-info { grid-template-columns: 1fr; }
-      section { padding: 20px 15px; } /* 减少内边距 */
-      .hero { padding: 20px 5%; } /* 减少内边距 */
+      section { padding: 20px 15px; }
+      .hero { padding: 20px 5%; }
       
       .btn { padding: 14px 26px; }
       
@@ -310,6 +335,15 @@
       
       .project-card { flex-direction: column; }
       .project-text, .project-img { min-width: 100%; }
+      
+      /* 移动端GIF布局调整 */
+      .project-card-with-gif {
+        flex-direction: column;
+      }
+      
+      .project-content, .gif-container {
+        min-width: 100%;
+      }
       
       .info-item { padding: 15px; }
       
@@ -334,7 +368,7 @@
       .hero-buttons { flex-direction: column; }
       .hero img { width: 120px; height: 120px; }
       .hero h1 { font-size: 1.6rem; }
-      section { padding: 15px 10px; } /* 减少内边距 */
+      section { padding: 15px 10px; }
     }
   </style>
 </head>
@@ -405,15 +439,19 @@
           </ul>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-text">
+      
+      <!-- 修复GIF布局的项目卡片 -->
+      <div class="project-card project-card-with-gif">
+        <div class="project-content">
           <h3>Sector Online Campaign</h3>
           <ul>
             <li>Increased MQLs by 40% YoY through SEO, Google Ads, and multi-channel online strategy.</li>
             <li>Improved conversion rate by 25% via A/B testing CTAs and landing pages.</li>
           </ul>
-          <div class="project-img">
-          <img src=".delta promotion campaign.gif" alt="Dashboard Project">
+        </div>
+        <div class="gif-container">
+          <!-- 使用在线GIF示例，确保路径正确 -->
+          <img src="./Pics/delta promotion campaign.gif" alt="Promotion Campaign GIF">
         </div>
       </div>
     </div>
@@ -608,5 +646,6 @@
   </script>
 </body>
 </html>
+
 
 
