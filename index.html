@@ -57,6 +57,7 @@
       flex-wrap: wrap; 
       gap: 10px; 
       margin-bottom: 15px; 
+      justify-content: flex-start; /* 默认左对齐 */
     }
     .btn-primary { background: #007bff; color: white; }
     .btn-outline { border: 2px solid #007bff; color: #007bff; background: transparent; }
@@ -325,6 +326,11 @@
       section { padding: 20px 15px; }
       .hero { padding: 20px 5%; }
       
+      /* 移动端按钮居中 */
+      .hero-buttons { 
+        justify-content: center; 
+      }
+      
       .btn { padding: 14px 26px; }
       
       .mobile-nav-toggle { display: flex; justify-content: center; align-items: center; }
@@ -430,6 +436,8 @@
           <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="Dashboard Project" onclick="openModal(this)">
         </div>
       </div>
+      
+      <!-- Website UX Optimization 项目 - 添加图片位置 -->
       <div class="project-card">
         <div class="project-text">
           <h3>Website UX Optimization</h3>
@@ -437,6 +445,9 @@
             <li>Led UX and performance enhancements across 10+ country websites.</li>
             <li>Reduced bounce rate by 24% and boosted engagement by 40%.</li>
           </ul>
+        </div>
+        <div class="project-img">
+          <img src="./Pics/YY Sample LS Dashboard_LS version.png" alt="UX Optimization Project" onclick="openModal(this)">
         </div>
       </div>
       
