@@ -173,6 +173,23 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     
+    /* 项目文本内元素左对齐 */
+    .project-text, 
+    .project-text h3, 
+    .project-text ul {
+      text-align: left;
+    }
+    
+    /* 确保bullet points与标题左对齐 */
+    .project-text ul {
+      padding-left: 20px;
+    }
+    
+    .project-text li {
+      text-align: left;
+      margin-bottom: 5px;
+    }
+    
     /* 交替布局 */
     .project-card:nth-child(even) {
       flex-direction: row-reverse;
@@ -365,7 +382,7 @@
 
     /* Responsive */
     @media(max-width: 768px) {
-      .hero, .about, .project-card { flex-direction: column; text-align: center; }
+      .hero, .about, .project-card { flex-direction: column; }
       .hero-content { max-width: 100%; order: 2; }
       .hero-img { order: 1; margin-bottom: 15px; }
       .personal-info { grid-template-columns: 1fr; }
@@ -390,6 +407,14 @@
       
       .project-text, .project-img { 
         min-width: 100%; 
+      }
+      
+      /* 确保移动端项目文本左对齐 */
+      .project-text, 
+      .project-text h3, 
+      .project-text ul,
+      .project-text li {
+        text-align: left !important;
       }
       
       .info-item { padding: 15px; }
@@ -798,9 +823,6 @@
   </script>
 </body>
 </html>
-
-
-
 
 
 
